@@ -9,13 +9,30 @@ import UIKit
 
 class NewsViewController: UITableViewController{
 
+    private var resultsModel = [Article]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         config()
-        
+        fetch()
+
     }
     
+    //MARK: - fetch APi
+    func fetch() {
+        NetworkManager.shared.fetchData {  result in
+            switch result {
+            case .success(let localModel):
+                self.resultsModel = localModel.articles
+                self.tableView.reloadData()
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
+    
+    //MARK: - config controller
     private func config() {
         tableView.delegate = self
         tableView.dataSource = self
@@ -26,12 +43,8 @@ class NewsViewController: UITableViewController{
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "Impact", size: 23) ?? ""]
         navigationController?.navigationBar.barTintColor = .gray.withAlphaComponent(0.6)
         title = "News"
-        
-//        let customTitle = addCustomNavView(titleController: "News", userImage: "house.fill")
-//        navigationItem.titleView = customTitle
+
     }
-    
-    
     
     //MARK: - hide,uinhide navigation bar
     override func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
@@ -49,16 +62,17 @@ class NewsViewController: UITableViewController{
     
     //MARK: - table View Config
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return resultsModel.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
        guard let cell = tableView.dequeueReusableCell(withIdentifier: NewsTableCell.id, for: indexPath)  as? NewsTableCell  else { return UITableViewCell() }
-        cell.backgroundColor = .systemYellow
-        cell.textLabel?.text = "dfsdfs"
+        cell.backgroundColor = .none
+        let valueModel = resultsModel[indexPath.row]
+        cell.setupOnCell(valueModel)
         return cell
     }
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 120
+        return 200
     }
 }

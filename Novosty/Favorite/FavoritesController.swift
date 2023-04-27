@@ -13,8 +13,14 @@ class FavoritesController: UITableViewController{
         super.viewDidLoad()
 
         config()
-        
+        fetchData()
     }
+    
+    //MARK: - fetch from CoreData
+    func fetchData() {
+ 
+    }
+    
     
     private func config() {
         tableView.delegate = self
@@ -45,14 +51,14 @@ class FavoritesController: UITableViewController{
     
     //MARK: - table View Config
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return 20
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
        guard let cell = tableView.dequeueReusableCell(withIdentifier: NewsTableCell.id, for: indexPath)  as? NewsTableCell  else { return UITableViewCell() }
         cell.backgroundColor = .systemGreen
         
-        cell.textLabel?.text = "favorite"
+        cell.textLabel?.text = "content"
         return cell
     }
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

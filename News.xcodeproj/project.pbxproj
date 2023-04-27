@@ -12,12 +12,13 @@
 		0CCF40A829F959B900AB3AA6 /* MainTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCF40A729F959B900AB3AA6 /* MainTabViewController.swift */; };
 		0CCF40AD29F959BA00AB3AA6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0CCF40AC29F959BA00AB3AA6 /* Assets.xcassets */; };
 		0CCF40BC29F95C5000AB3AA6 /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCF40BB29F95C5000AB3AA6 /* NewsViewController.swift */; };
-		0CCF40BE29F95C8E00AB3AA6 /* MyLibraryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCF40BD29F95C8E00AB3AA6 /* MyLibraryController.swift */; };
 		0CCF40C429F9800600AB3AA6 /* NewsTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCF40C329F9800600AB3AA6 /* NewsTableCell.swift */; };
-		0CCF40C629F99B1500AB3AA6 /* LibraryTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCF40C529F99B1500AB3AA6 /* LibraryTableCell.swift */; };
 		0CCF40C929F99D8E00AB3AA6 /* FavoritesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCF40C829F99D8E00AB3AA6 /* FavoritesController.swift */; };
 		0CCF40CB29F9A0A100AB3AA6 /* Extension + NavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCF40CA29F9A0A100AB3AA6 /* Extension + NavBar.swift */; };
 		0CCF40CE29F9A61100AB3AA6 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCF40CD29F9A61100AB3AA6 /* UIView.swift */; };
+		0CFD647D29FA9037000EB5E7 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CFD647C29FA9037000EB5E7 /* Model.swift */; };
+		0CFD648029FA9148000EB5E7 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CFD647F29FA9148000EB5E7 /* NetworkManager.swift */; };
+		0CFD648629FAEA08000EB5E7 /* Extension + NewsTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CFD648529FAEA08000EB5E7 /* Extension + NewsTableCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,12 +29,13 @@
 		0CCF40AC29F959BA00AB3AA6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0CCF40B129F959BA00AB3AA6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0CCF40BB29F95C5000AB3AA6 /* NewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
-		0CCF40BD29F95C8E00AB3AA6 /* MyLibraryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyLibraryController.swift; sourceTree = "<group>"; };
 		0CCF40C329F9800600AB3AA6 /* NewsTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTableCell.swift; sourceTree = "<group>"; };
-		0CCF40C529F99B1500AB3AA6 /* LibraryTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryTableCell.swift; sourceTree = "<group>"; };
 		0CCF40C829F99D8E00AB3AA6 /* FavoritesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesController.swift; sourceTree = "<group>"; };
 		0CCF40CA29F9A0A100AB3AA6 /* Extension + NavBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + NavBar.swift"; sourceTree = "<group>"; };
 		0CCF40CD29F9A61100AB3AA6 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
+		0CFD647C29FA9037000EB5E7 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		0CFD647F29FA9148000EB5E7 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		0CFD648529FAEA08000EB5E7 /* Extension + NewsTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + NewsTableCell.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,9 +68,10 @@
 		0CCF40A229F959B900AB3AA6 /* Novosty */ = {
 			isa = PBXGroup;
 			children = (
+				0CFD647E29FA9136000EB5E7 /* Services */,
+				0CFD647B29FA901B000EB5E7 /* Model */,
 				0CCF40CC29F9A5FE00AB3AA6 /* Util */,
 				0CCF40A729F959B900AB3AA6 /* MainTabViewController.swift */,
-				0CCF40C229F97B6000AB3AA6 /* MyLibrary */,
 				0CCF40B829F959E100AB3AA6 /* Resources */,
 				0CCF40B729F959D700AB3AA6 /* App */,
 				0CCF40C129F97B4100AB3AA6 /* News */,
@@ -101,17 +104,9 @@
 				0CCF40BB29F95C5000AB3AA6 /* NewsViewController.swift */,
 				0CCF40C329F9800600AB3AA6 /* NewsTableCell.swift */,
 				0CCF40CA29F9A0A100AB3AA6 /* Extension + NavBar.swift */,
+				0CFD648529FAEA08000EB5E7 /* Extension + NewsTableCell.swift */,
 			);
 			path = News;
-			sourceTree = "<group>";
-		};
-		0CCF40C229F97B6000AB3AA6 /* MyLibrary */ = {
-			isa = PBXGroup;
-			children = (
-				0CCF40BD29F95C8E00AB3AA6 /* MyLibraryController.swift */,
-				0CCF40C529F99B1500AB3AA6 /* LibraryTableCell.swift */,
-			);
-			path = MyLibrary;
 			sourceTree = "<group>";
 		};
 		0CCF40C729F99D6E00AB3AA6 /* Favorite */ = {
@@ -128,6 +123,22 @@
 				0CCF40CD29F9A61100AB3AA6 /* UIView.swift */,
 			);
 			path = Util;
+			sourceTree = "<group>";
+		};
+		0CFD647B29FA901B000EB5E7 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0CFD647C29FA9037000EB5E7 /* Model.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		0CFD647E29FA9136000EB5E7 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				0CFD647F29FA9148000EB5E7 /* NetworkManager.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -200,13 +211,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				0CCF40CE29F9A61100AB3AA6 /* UIView.swift in Sources */,
+				0CFD648629FAEA08000EB5E7 /* Extension + NewsTableCell.swift in Sources */,
 				0CCF40A829F959B900AB3AA6 /* MainTabViewController.swift in Sources */,
-				0CCF40C629F99B1500AB3AA6 /* LibraryTableCell.swift in Sources */,
+				0CFD648029FA9148000EB5E7 /* NetworkManager.swift in Sources */,
 				0CCF40CB29F9A0A100AB3AA6 /* Extension + NavBar.swift in Sources */,
 				0CCF40A429F959B900AB3AA6 /* AppDelegate.swift in Sources */,
 				0CCF40A629F959B900AB3AA6 /* SceneDelegate.swift in Sources */,
 				0CCF40BC29F95C5000AB3AA6 /* NewsViewController.swift in Sources */,
-				0CCF40BE29F95C8E00AB3AA6 /* MyLibraryController.swift in Sources */,
+				0CFD647D29FA9037000EB5E7 /* Model.swift in Sources */,
 				0CCF40C429F9800600AB3AA6 /* NewsTableCell.swift in Sources */,
 				0CCF40C929F99D8E00AB3AA6 /* FavoritesController.swift in Sources */,
 			);

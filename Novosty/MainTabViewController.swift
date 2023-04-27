@@ -20,7 +20,7 @@ class MainTabViewController: UITabBarController {
         viewControllers = [
             createVC(vc: NewsViewController(),vcName: "News", image: "house.fill"),
             createVC(vc: FavoritesController(),vcName: "Favorites", image: "star.fill"),
-            createVC(vc: MyLibraryController(),vcName: "Library", image: "archivebox.fill")
+           
             
             
         ]
