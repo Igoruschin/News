@@ -19,6 +19,7 @@
 		0CFD647D29FA9037000EB5E7 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CFD647C29FA9037000EB5E7 /* Model.swift */; };
 		0CFD648029FA9148000EB5E7 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CFD647F29FA9148000EB5E7 /* NetworkManager.swift */; };
 		0CFD648629FAEA08000EB5E7 /* Extension + NewsTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CFD648529FAEA08000EB5E7 /* Extension + NewsTableCell.swift */; };
+		0CFD648A29FB1B30000EB5E7 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CFD648929FB1B30000EB5E7 /* Date.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		0CFD647C29FA9037000EB5E7 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		0CFD647F29FA9148000EB5E7 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		0CFD648529FAEA08000EB5E7 /* Extension + NewsTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + NewsTableCell.swift"; sourceTree = "<group>"; };
+		0CFD648929FB1B30000EB5E7 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +123,7 @@
 			isa = PBXGroup;
 			children = (
 				0CCF40CD29F9A61100AB3AA6 /* UIView.swift */,
+				0CFD648929FB1B30000EB5E7 /* Date.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -217,6 +220,7 @@
 				0CCF40CB29F9A0A100AB3AA6 /* Extension + NavBar.swift in Sources */,
 				0CCF40A429F959B900AB3AA6 /* AppDelegate.swift in Sources */,
 				0CCF40A629F959B900AB3AA6 /* SceneDelegate.swift in Sources */,
+				0CFD648A29FB1B30000EB5E7 /* Date.swift in Sources */,
 				0CCF40BC29F95C5000AB3AA6 /* NewsViewController.swift in Sources */,
 				0CFD647D29FA9037000EB5E7 /* Model.swift in Sources */,
 				0CCF40C429F9800600AB3AA6 /* NewsTableCell.swift in Sources */,
