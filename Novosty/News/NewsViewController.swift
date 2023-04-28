@@ -8,15 +8,15 @@
 import UIKit
 
 class NewsViewController: UITableViewController{
-
+    
     private var resultsModel = [Article]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         config()
         fetch()
-
+        
     }
     
     //MARK: - fetch APi
@@ -26,6 +26,18 @@ class NewsViewController: UITableViewController{
             case .success(let localModel):
                 self.resultsModel = localModel.articles
                 self.tableView.reloadData()
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
+    
+    //MARK: - downloadToLibrary
+    private func downloadToLib(indexPath: IndexPath) {
+        CDataManager.shared.downloadToCoreData(model: resultsModel[indexPath.row]) { result in
+            switch result {
+            case .success(): break
+                
             case .failure(let error):
                 print(error.localizedDescription)
             }
@@ -43,7 +55,7 @@ class NewsViewController: UITableViewController{
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "Impact", size: 23) ?? ""]
         navigationController?.navigationBar.barTintColor = .gray.withAlphaComponent(0.6)
         title = "News"
-
+        
     }
     
     //MARK: - hide,uinhide navigation bar
@@ -66,13 +78,30 @@ class NewsViewController: UITableViewController{
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-       guard let cell = tableView.dequeueReusableCell(withIdentifier: NewsTableCell.id, for: indexPath)  as? NewsTableCell  else { return UITableViewCell() }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: NewsTableCell.id, for: indexPath)  as? NewsTableCell  else { return UITableViewCell() }
         cell.backgroundColor = .none
         let valueModel = resultsModel[indexPath.row]
         cell.setupOnCell(valueModel)
+        cell.delegate = self
+        cell.index = indexPath
         return cell
     }
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 200
+    }
+
+}
+
+
+extension NewsViewController: DelegateNewsCell{
+    func add(indexPath: Int) {
+        CDataManager.shared.downloadToCoreData(model: resultsModel[indexPath]) { result in
+            switch result {
+            case .success(): break
+
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
     }
 }

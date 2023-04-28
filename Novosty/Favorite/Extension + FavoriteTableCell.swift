@@ -1,14 +1,13 @@
 //
-//  Extension + NewsTableCell.swift
+//  Extension + FavoriteTableCell.swift
 //  News
 //
-//  Created by Игорь Ущин on 27.04.2023.
+//  Created by Игорь Ущин on 28.04.2023.
 //
-
 import Foundation
 import UIKit
 
-extension NewsTableCell {
+extension  FavoriteTableCell  {
     
     func images() -> UIImageView {
         let img = UIImageView().setTamic()
@@ -74,8 +73,8 @@ extension NewsTableCell {
     
     func addButton() -> UIButton {
         let btn = UIButton().setTamic()
-        btn.setImage(UIImage(systemName: "star"), for: .normal)
-        btn.setImage(UIImage(systemName: "star.fill"), for: .selected)
+        btn.setImage(UIImage(systemName: "trash"), for: .normal)
+        btn.setImage(UIImage(systemName: "trash"), for: .selected)
         btn.frame.size = CGSize(width: 50, height: 50)
         btn.addTarget(self, action: #selector(Taped(sender:)), for: .touchUpInside)
         return btn
@@ -86,7 +85,8 @@ extension NewsTableCell {
         if sender.isSelected {
             sender.isSelected = false
         } else {
-            delegate?.add(indexPath: (index?.row)!)
+            delegate?.delete(indexPath: (index?.row)!)
+            
             sender.isSelected = true
             
         }

@@ -14,8 +14,11 @@
 		0CCF40BC29F95C5000AB3AA6 /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCF40BB29F95C5000AB3AA6 /* NewsViewController.swift */; };
 		0CCF40C429F9800600AB3AA6 /* NewsTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCF40C329F9800600AB3AA6 /* NewsTableCell.swift */; };
 		0CCF40C929F99D8E00AB3AA6 /* FavoritesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCF40C829F99D8E00AB3AA6 /* FavoritesController.swift */; };
-		0CCF40CB29F9A0A100AB3AA6 /* Extension + NavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCF40CA29F9A0A100AB3AA6 /* Extension + NavBar.swift */; };
 		0CCF40CE29F9A61100AB3AA6 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCF40CD29F9A61100AB3AA6 /* UIView.swift */; };
+		0CD4E1E129FBD83500B7611C /* CDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD4E1E029FBD83500B7611C /* CDataManager.swift */; };
+		0CD4E1E429FBE1EB00B7611C /* CoreDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0CD4E1E229FBE1EB00B7611C /* CoreDataModel.xcdatamodeld */; };
+		0CD4E1EE29FBE7AF00B7611C /* FavoriteTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD4E1ED29FBE7AF00B7611C /* FavoriteTableCell.swift */; };
+		0CD4E1F029FBE8C700B7611C /* Extension + FavoriteTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD4E1EF29FBE8C700B7611C /* Extension + FavoriteTableCell.swift */; };
 		0CFD647D29FA9037000EB5E7 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CFD647C29FA9037000EB5E7 /* Model.swift */; };
 		0CFD648029FA9148000EB5E7 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CFD647F29FA9148000EB5E7 /* NetworkManager.swift */; };
 		0CFD648629FAEA08000EB5E7 /* Extension + NewsTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CFD648529FAEA08000EB5E7 /* Extension + NewsTableCell.swift */; };
@@ -32,8 +35,11 @@
 		0CCF40BB29F95C5000AB3AA6 /* NewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
 		0CCF40C329F9800600AB3AA6 /* NewsTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTableCell.swift; sourceTree = "<group>"; };
 		0CCF40C829F99D8E00AB3AA6 /* FavoritesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesController.swift; sourceTree = "<group>"; };
-		0CCF40CA29F9A0A100AB3AA6 /* Extension + NavBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + NavBar.swift"; sourceTree = "<group>"; };
 		0CCF40CD29F9A61100AB3AA6 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
+		0CD4E1E029FBD83500B7611C /* CDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CDataManager.swift; sourceTree = "<group>"; };
+		0CD4E1E329FBE1EB00B7611C /* CoreDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataModel.xcdatamodel; sourceTree = "<group>"; };
+		0CD4E1ED29FBE7AF00B7611C /* FavoriteTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteTableCell.swift; sourceTree = "<group>"; };
+		0CD4E1EF29FBE8C700B7611C /* Extension + FavoriteTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + FavoriteTableCell.swift"; sourceTree = "<group>"; };
 		0CFD647C29FA9037000EB5E7 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		0CFD647F29FA9148000EB5E7 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		0CFD648529FAEA08000EB5E7 /* Extension + NewsTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + NewsTableCell.swift"; sourceTree = "<group>"; };
@@ -105,7 +111,6 @@
 			children = (
 				0CCF40BB29F95C5000AB3AA6 /* NewsViewController.swift */,
 				0CCF40C329F9800600AB3AA6 /* NewsTableCell.swift */,
-				0CCF40CA29F9A0A100AB3AA6 /* Extension + NavBar.swift */,
 				0CFD648529FAEA08000EB5E7 /* Extension + NewsTableCell.swift */,
 			);
 			path = News;
@@ -115,6 +120,8 @@
 			isa = PBXGroup;
 			children = (
 				0CCF40C829F99D8E00AB3AA6 /* FavoritesController.swift */,
+				0CD4E1ED29FBE7AF00B7611C /* FavoriteTableCell.swift */,
+				0CD4E1EF29FBE8C700B7611C /* Extension + FavoriteTableCell.swift */,
 			);
 			path = Favorite;
 			sourceTree = "<group>";
@@ -122,6 +129,7 @@
 		0CCF40CC29F9A5FE00AB3AA6 /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				0CD4E1E229FBE1EB00B7611C /* CoreDataModel.xcdatamodeld */,
 				0CCF40CD29F9A61100AB3AA6 /* UIView.swift */,
 				0CFD648929FB1B30000EB5E7 /* Date.swift */,
 			);
@@ -140,6 +148,7 @@
 			isa = PBXGroup;
 			children = (
 				0CFD647F29FA9148000EB5E7 /* NetworkManager.swift */,
+				0CD4E1E029FBD83500B7611C /* CDataManager.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -216,14 +225,17 @@
 				0CCF40CE29F9A61100AB3AA6 /* UIView.swift in Sources */,
 				0CFD648629FAEA08000EB5E7 /* Extension + NewsTableCell.swift in Sources */,
 				0CCF40A829F959B900AB3AA6 /* MainTabViewController.swift in Sources */,
+				0CD4E1E429FBE1EB00B7611C /* CoreDataModel.xcdatamodeld in Sources */,
+				0CD4E1F029FBE8C700B7611C /* Extension + FavoriteTableCell.swift in Sources */,
 				0CFD648029FA9148000EB5E7 /* NetworkManager.swift in Sources */,
-				0CCF40CB29F9A0A100AB3AA6 /* Extension + NavBar.swift in Sources */,
 				0CCF40A429F959B900AB3AA6 /* AppDelegate.swift in Sources */,
 				0CCF40A629F959B900AB3AA6 /* SceneDelegate.swift in Sources */,
 				0CFD648A29FB1B30000EB5E7 /* Date.swift in Sources */,
 				0CCF40BC29F95C5000AB3AA6 /* NewsViewController.swift in Sources */,
 				0CFD647D29FA9037000EB5E7 /* Model.swift in Sources */,
+				0CD4E1E129FBD83500B7611C /* CDataManager.swift in Sources */,
 				0CCF40C429F9800600AB3AA6 /* NewsTableCell.swift in Sources */,
+				0CD4E1EE29FBE7AF00B7611C /* FavoriteTableCell.swift in Sources */,
 				0CCF40C929F99D8E00AB3AA6 /* FavoritesController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -427,6 +439,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		0CD4E1E229FBE1EB00B7611C /* CoreDataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				0CD4E1E329FBE1EB00B7611C /* CoreDataModel.xcdatamodel */,
+			);
+			currentVersion = 0CD4E1E329FBE1EB00B7611C /* CoreDataModel.xcdatamodel */;
+			path = CoreDataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 0CCF409829F959B900AB3AA6 /* Project object */;
 }

@@ -8,26 +8,54 @@
 import UIKit
 
 class FavoritesController: UITableViewController{
+   
+    private var results = [CDataModel]()
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        fetchData()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         config()
-        fetchData()
+        
     }
     
     //MARK: - fetch from CoreData
     func fetchData() {
- 
+        CDataManager.shared.fetchFromCoreData { [weak self] result in
+            switch result {
+            case .success(let films):
+                self?.results = films
+                DispatchQueue.main.async {
+                    self?.tableView.reloadData()
+                }
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
     }
-    
+    //MARK: - remove from database
+    private func removeFromCoreData(indexPath: IndexPath) {
+        CDataManager.shared.removeFromCoreData(model: results[indexPath.row]) { [weak self] entity in
+            switch entity {
+            case .success(): break
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+            self?.results.remove(at: indexPath.row)
+            self?.tableView.deleteRows( at: [indexPath], with: .fade)
+        }
+    }
     
     private func config() {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.frame =  view.bounds
         tableView.backgroundColor = .green
-        tableView.register(NewsTableCell.self, forCellReuseIdentifier: NewsTableCell.id)
+        tableView.register(FavoriteTableCell.self, forCellReuseIdentifier: FavoriteTableCell.id)
         view.backgroundColor = .gray.withAlphaComponent(0.9)
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "Impact", size: 23) ?? ""]
         navigationController?.navigationBar.barTintColor = .gray.withAlphaComponent(0.6)
@@ -51,17 +79,39 @@ class FavoritesController: UITableViewController{
     
     //MARK: - table View Config
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 20
+        return results.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-       guard let cell = tableView.dequeueReusableCell(withIdentifier: NewsTableCell.id, for: indexPath)  as? NewsTableCell  else { return UITableViewCell() }
-        cell.backgroundColor = .systemGreen
-        
-        cell.textLabel?.text = "content"
+       guard let cell = tableView.dequeueReusableCell(withIdentifier: FavoriteTableCell.id, for: indexPath)  as? FavoriteTableCell  else { return UITableViewCell() }
+        cell.backgroundColor = .none
+        let coreModel = results[indexPath.row]
+        cell.setupOnCell(coreModel)
+        cell.delegate = self
+        cell.index = indexPath
         return cell
     }
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 120
+        return 200
+    }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            self.removeFromCoreData(indexPath: indexPath)
+        }
+    }
+}
+
+extension FavoritesController: DelegateFavoriteCell{
+    func delete(indexPath: Int) {
+        CDataManager.shared.removeFromCoreData(model: results[indexPath]) { [weak self] result in
+               switch result {
+               case .success():
+                   self?.results.remove(at: indexPath)
+                   self?.tableView.reloadData()
+               case .failure(let error):
+                   print(error.localizedDescription)
+            }
+        }
     }
 }

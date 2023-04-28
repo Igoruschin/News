@@ -1,25 +1,23 @@
 //
-//  NewsTableCell.swift
-//  Novosty
+//  FavoriteTableCell.swift
+//  News
 //
-//  Created by Игорь Ущин on 26.04.2023.
+//  Created by Игорь Ущин on 28.04.2023.
 //
 
 import Foundation
 import UIKit
 
-protocol DelegateNewsCell {
-    func add(indexPath: Int)
+protocol DelegateFavoriteCell {
+    func delete(indexPath: Int)
 }
 
-class NewsTableCell: UITableViewCell  {
+class FavoriteTableCell: UITableViewCell  {
     
     static let id = "NewsTableCell"
-    var delegate: DelegateNewsCell?
+    var delegate: DelegateFavoriteCell?
     var index : IndexPath?
-    
-    private var resultsModel = [Article]()
-    
+   
     lazy var imagePreview = images()
     lazy var descriptionLabel = descript()
     lazy var titleLabel = title()
@@ -43,8 +41,8 @@ class NewsTableCell: UITableViewCell  {
     }
 
     //MARK: - setup into cell
-        func setupOnCell(_ result: Article){
-            update(title: result.title, descript: result.description, posterImg: result.urlToImage, creater: result.author, date: result.publishedAt)
+        func setupOnCell(_ result: CDataModel){
+            update(title: result.title, descript: result.descript, posterImg: result.imageUrl, creater: result.author, date: result.date)
         }
 
     func update(title: String?, descript: String?, posterImg: String?, creater: String?, date: String?) {
@@ -73,26 +71,10 @@ class NewsTableCell: UITableViewCell  {
                 }
             }
         }
-    
-//    //MARK: - downloadToLibrary
-//    func downloadToLib(indexPath: IndexPath) {
-//        CDataManager.shared.downloadToCoreData(model: resultsModel[indexPath.row]) { result in
-//            switch result {
-//            case .success(): break
-//
-//            case .failure(let error):
-//                print(error.localizedDescription)
-//            }
-//        }
-//    }
-    
-    func configurate( cellIndex: Int) {
-        button.tag = cellIndex
-      }
 }
 
 //MARK: - set constraints
-extension NewsTableCell {
+extension FavoriteTableCell {
     func setElemets() {
         separatorInset = UIEdgeInsets(top: 0, left: 30, bottom: 0, right: 30)
         selectionStyle = .default
@@ -136,8 +118,6 @@ extension NewsTableCell {
             dateLabel.leadingAnchor.constraint(equalTo: imagePreview.leadingAnchor),
             dateLabel.heightAnchor.constraint(equalToConstant: 20),
             dateLabel.widthAnchor.constraint(equalToConstant: 155),
-            
-           
                                     ])
         
     }
