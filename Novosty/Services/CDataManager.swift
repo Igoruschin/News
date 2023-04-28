@@ -8,7 +8,7 @@ import Foundation
 import UIKit
 import CoreData
 
-class CDataManager {
+final class CDataManager {
     
     static let shared = CDataManager(); private init() {}
     

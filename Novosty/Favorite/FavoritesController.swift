@@ -6,11 +6,12 @@
 //
 
 import UIKit
+import SafariServices
 
 class FavoritesController: UITableViewController{
    
     private var results = [CDataModel]()
-    var factoryBuilder: DeafaultAlertsBuilder = DefaultAlertsImp()
+    private let factoryBuilder: DeafaultAlertsBuilder = DefaultAlertsImp()
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -25,7 +26,8 @@ class FavoritesController: UITableViewController{
     }
     
     //MARK: - fetch from CoreData
-    func fetchData() {
+    private func fetchData() {
+        tabBarController?.tabBar.isHidden = false
         CDataManager.shared.fetchFromCoreData { [weak self] result in
             switch result {
             case .success(let films):
@@ -100,6 +102,12 @@ class FavoritesController: UITableViewController{
         if editingStyle == .delete {
             self.removeFromCoreData(indexPath: indexPath)
         }
+    }
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let value = results[indexPath.row]
+        guard let url  = URL(string: value.url ?? "") else { return }
+        let safari = SFSafariViewController(url: url)
+        present(safari, animated: true)
     }
 }
 

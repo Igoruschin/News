@@ -12,7 +12,7 @@ protocol DelegateNewsCell {
     func add(indexPath: Int)
 }
 
-class NewsTableCell: UITableViewCell  {
+final class NewsTableCell: UITableViewCell  {
     
     static let id = "NewsTableCell"
     var delegate: DelegateNewsCell?

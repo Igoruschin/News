@@ -9,11 +9,11 @@ import Foundation
 
 
 struct Constants {
-    static let apiKEY = "7d111255a241492f84be8eb3d8f3b769"
+    static let apiKEY = "7d111255a241492f84be8eb3d8f3b769&page=2"
     static let baseURL = "https://newsapi.org/v2/everything?q=bitcoin&apiKey="
 }
 
-class NetworkManager {
+final class NetworkManager {
     static let shared = NetworkManager(); private  init() {}
     
     func fetchData(completion: @escaping (Result<Model, Error>) -> ()) {

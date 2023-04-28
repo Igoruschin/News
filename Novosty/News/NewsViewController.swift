@@ -6,11 +6,17 @@
 //
 
 import UIKit
+import SafariServices
 
 class NewsViewController: UITableViewController{
     
     private var resultsModel = [Article]()
-    var factoryBuilder: DeafaultAlertsBuilder = DefaultAlertsImp()
+    private let factoryBuilder: DeafaultAlertsBuilder = DefaultAlertsImp()
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        tabBarController?.tabBar.isHidden = false
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,24 +27,12 @@ class NewsViewController: UITableViewController{
     }
     
     //MARK: - fetch APi
-    func fetch() {
+    private func fetch() {
         NetworkManager.shared.fetchData {  result in
             switch result {
             case .success(let localModel):
                 self.resultsModel = localModel.articles
                 self.tableView.reloadData()
-            case .failure(let error):
-                print(error.localizedDescription)
-            }
-        }
-    }
-    
-    //MARK: - downloadToLibrary
-    private func downloadToLib(indexPath: IndexPath) {
-        CDataManager.shared.downloadToCoreData(model: resultsModel[indexPath.row]) { result in
-            switch result {
-            case .success(): break
-                
             case .failure(let error):
                 print(error.localizedDescription)
             }
@@ -56,7 +50,6 @@ class NewsViewController: UITableViewController{
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "Impact", size: 23) ?? ""]
         navigationController?.navigationBar.barTintColor = .white.withAlphaComponent(0.6)
         title = "News"
-        
     }
     
     //MARK: - hide,uinhide navigation bar
@@ -90,6 +83,13 @@ class NewsViewController: UITableViewController{
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 200
     }
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let value = resultsModel[indexPath.row]
+        guard let url  = URL(string: value.url ?? "") else { return }
+        let safari = SFSafariViewController(url: url)
+        present(safari, animated: true)
+        
+    }
 }
 
 extension NewsViewController: DelegateNewsCell{
@@ -103,7 +103,6 @@ extension NewsViewController: DelegateNewsCell{
                 DispatchQueue.main.asyncAfter(deadline: .now() + 1.2) {
                     self.dismiss(animated: true)
                 }
-
             case .failure(let error):
                 print(error.localizedDescription)
             }
