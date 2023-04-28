@@ -19,6 +19,7 @@
 		0CD4E1E429FBE1EB00B7611C /* CoreDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0CD4E1E229FBE1EB00B7611C /* CoreDataModel.xcdatamodeld */; };
 		0CD4E1EE29FBE7AF00B7611C /* FavoriteTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD4E1ED29FBE7AF00B7611C /* FavoriteTableCell.swift */; };
 		0CD4E1F029FBE8C700B7611C /* Extension + FavoriteTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD4E1EF29FBE8C700B7611C /* Extension + FavoriteTableCell.swift */; };
+		0CD4E1F229FC1A3500B7611C /* AlertsBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD4E1F129FC1A3500B7611C /* AlertsBuilder.swift */; };
 		0CFD647D29FA9037000EB5E7 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CFD647C29FA9037000EB5E7 /* Model.swift */; };
 		0CFD648029FA9148000EB5E7 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CFD647F29FA9148000EB5E7 /* NetworkManager.swift */; };
 		0CFD648629FAEA08000EB5E7 /* Extension + NewsTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CFD648529FAEA08000EB5E7 /* Extension + NewsTableCell.swift */; };
@@ -40,6 +41,7 @@
 		0CD4E1E329FBE1EB00B7611C /* CoreDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataModel.xcdatamodel; sourceTree = "<group>"; };
 		0CD4E1ED29FBE7AF00B7611C /* FavoriteTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteTableCell.swift; sourceTree = "<group>"; };
 		0CD4E1EF29FBE8C700B7611C /* Extension + FavoriteTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + FavoriteTableCell.swift"; sourceTree = "<group>"; };
+		0CD4E1F129FC1A3500B7611C /* AlertsBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertsBuilder.swift; sourceTree = "<group>"; };
 		0CFD647C29FA9037000EB5E7 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		0CFD647F29FA9148000EB5E7 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		0CFD648529FAEA08000EB5E7 /* Extension + NewsTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + NewsTableCell.swift"; sourceTree = "<group>"; };
@@ -79,7 +81,6 @@
 				0CFD647E29FA9136000EB5E7 /* Services */,
 				0CFD647B29FA901B000EB5E7 /* Model */,
 				0CCF40CC29F9A5FE00AB3AA6 /* Util */,
-				0CCF40A729F959B900AB3AA6 /* MainTabViewController.swift */,
 				0CCF40B829F959E100AB3AA6 /* Resources */,
 				0CCF40B729F959D700AB3AA6 /* App */,
 				0CCF40C129F97B4100AB3AA6 /* News */,
@@ -109,8 +110,8 @@
 		0CCF40C129F97B4100AB3AA6 /* News */ = {
 			isa = PBXGroup;
 			children = (
-				0CCF40BB29F95C5000AB3AA6 /* NewsViewController.swift */,
 				0CCF40C329F9800600AB3AA6 /* NewsTableCell.swift */,
+				0CCF40BB29F95C5000AB3AA6 /* NewsViewController.swift */,
 				0CFD648529FAEA08000EB5E7 /* Extension + NewsTableCell.swift */,
 			);
 			path = News;
@@ -129,6 +130,7 @@
 		0CCF40CC29F9A5FE00AB3AA6 /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				0CCF40A729F959B900AB3AA6 /* MainTabViewController.swift */,
 				0CD4E1E229FBE1EB00B7611C /* CoreDataModel.xcdatamodeld */,
 				0CCF40CD29F9A61100AB3AA6 /* UIView.swift */,
 				0CFD648929FB1B30000EB5E7 /* Date.swift */,
@@ -149,6 +151,7 @@
 			children = (
 				0CFD647F29FA9148000EB5E7 /* NetworkManager.swift */,
 				0CD4E1E029FBD83500B7611C /* CDataManager.swift */,
+				0CD4E1F129FC1A3500B7611C /* AlertsBuilder.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -235,6 +238,7 @@
 				0CFD647D29FA9037000EB5E7 /* Model.swift in Sources */,
 				0CD4E1E129FBD83500B7611C /* CDataManager.swift in Sources */,
 				0CCF40C429F9800600AB3AA6 /* NewsTableCell.swift in Sources */,
+				0CD4E1F229FC1A3500B7611C /* AlertsBuilder.swift in Sources */,
 				0CD4E1EE29FBE7AF00B7611C /* FavoriteTableCell.swift in Sources */,
 				0CCF40C929F99D8E00AB3AA6 /* FavoritesController.swift in Sources */,
 			);

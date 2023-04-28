@@ -10,6 +10,7 @@ import UIKit
 class FavoritesController: UITableViewController{
    
     private var results = [CDataModel]()
+    var factoryBuilder: DeafaultAlertsBuilder = DefaultAlertsImp()
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -56,9 +57,9 @@ class FavoritesController: UITableViewController{
         tableView.frame =  view.bounds
         tableView.backgroundColor = .green
         tableView.register(FavoriteTableCell.self, forCellReuseIdentifier: FavoriteTableCell.id)
-        view.backgroundColor = .gray.withAlphaComponent(0.9)
+        view.backgroundColor =  .white.withAlphaComponent(1)
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "Impact", size: 23) ?? ""]
-        navigationController?.navigationBar.barTintColor = .gray.withAlphaComponent(0.6)
+        navigationController?.navigationBar.barTintColor = .white.withAlphaComponent(0.6)
         title = "Favorites"
         
     }
@@ -107,6 +108,12 @@ extension FavoritesController: DelegateFavoriteCell{
         CDataManager.shared.removeFromCoreData(model: results[indexPath]) { [weak self] result in
                switch result {
                case .success():
+                   let alert1  = self?.factoryBuilder.getAlert(by: .delAlert)
+                   self?.present(alert1!, animated: true)
+
+                   DispatchQueue.main.asyncAfter(deadline: .now() + 1.2) {
+                       self?.dismiss(animated: true)
+                   }
                    self?.results.remove(at: indexPath)
                    self?.tableView.reloadData()
                case .failure(let error):

@@ -10,6 +10,7 @@ import UIKit
 class NewsViewController: UITableViewController{
     
     private var resultsModel = [Article]()
+    var factoryBuilder: DeafaultAlertsBuilder = DefaultAlertsImp()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,9 +52,9 @@ class NewsViewController: UITableViewController{
         tableView.frame =  view.bounds
         tableView.register(NewsTableCell.self, forCellReuseIdentifier: NewsTableCell.id)
         tableView.separatorColor = .darkGray
-        view.backgroundColor = .gray.withAlphaComponent(0.9)
+        view.backgroundColor = .white.withAlphaComponent(1)
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "Impact", size: 23) ?? ""]
-        navigationController?.navigationBar.barTintColor = .gray.withAlphaComponent(0.6)
+        navigationController?.navigationBar.barTintColor = .white.withAlphaComponent(0.6)
         title = "News"
         
     }
@@ -89,15 +90,19 @@ class NewsViewController: UITableViewController{
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 200
     }
-
 }
-
 
 extension NewsViewController: DelegateNewsCell{
     func add(indexPath: Int) {
         CDataManager.shared.downloadToCoreData(model: resultsModel[indexPath]) { result in
             switch result {
-            case .success(): break
+            case .success():
+                let alert1  = self.factoryBuilder.getAlert(by: .okAlert)
+                self.present(alert1, animated: true)
+
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1.2) {
+                    self.dismiss(animated: true)
+                }
 
             case .failure(let error):
                 print(error.localizedDescription)

@@ -18,6 +18,7 @@ class NewsTableCell: UITableViewCell  {
     var delegate: DelegateNewsCell?
     var index : IndexPath?
     
+    
     private var resultsModel = [Article]()
     
     lazy var imagePreview = images()
@@ -73,22 +74,7 @@ class NewsTableCell: UITableViewCell  {
                 }
             }
         }
-    
-//    //MARK: - downloadToLibrary
-//    func downloadToLib(indexPath: IndexPath) {
-//        CDataManager.shared.downloadToCoreData(model: resultsModel[indexPath.row]) { result in
-//            switch result {
-//            case .success(): break
-//
-//            case .failure(let error):
-//                print(error.localizedDescription)
-//            }
-//        }
-//    }
-    
-    func configurate( cellIndex: Int) {
-        button.tag = cellIndex
-      }
+
 }
 
 //MARK: - set constraints

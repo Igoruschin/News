@@ -86,6 +86,7 @@ extension NewsTableCell {
         if sender.isSelected {
             sender.isSelected = false
         } else {
+           
             delegate?.add(indexPath: (index?.row)!)
             sender.isSelected = true
             

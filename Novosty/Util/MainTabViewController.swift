@@ -18,11 +18,8 @@ class MainTabViewController: UITabBarController {
     //MARK: - add nav controllers
     private func createTabBar() {
         viewControllers = [
-            createVC(vc: NewsViewController(),vcName: "News", image: "house.fill"),
+            createVC(vc: NewsViewController(),vcName: "News", image: "magazine.fill"),
             createVC(vc: FavoritesController(),vcName: "Favorites", image: "star.fill"),
-           
-            
-            
         ]
     }
     
