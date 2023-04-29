@@ -11,25 +11,75 @@ import XCTest
 final class NewsTests: XCTestCase {
 
     var net: NetworkManager!
+    var data: CDataManager!
+    
+    
     override func setUpWithError() throws {
- 
-        
+        net  = NetworkManager.shared
+        data = CDataManager.shared
     }
 
     override func tearDownWithError() throws {
-      net = nil
+        net = nil
+        data = nil
     }
 
     func testExample() throws {
-
-   
+        
+        net.fetchData { result in
+            switch result {
+            case .success(_):
+                XCTFail("fail success")
+            case .failure(let error):
+                XCTAssertTrue(error is SomeError)
+            }
+        }
+        
+        
+        data.fetchFromCoreData { result in
+            switch result {
+            case .success(_):
+                break
+            case .failure(let error):
+                XCTAssertTrue(error is Error2)
+            }
+        }
+       
+        let arr = [Article]()
+        func pre1(indexPath: Int) {
+            data.downloadToCoreData(model: arr[indexPath]) { result in
+                switch result {
+                case .success(_):
+                    break
+                case .failure(let error):
+                    XCTAssertTrue(error is Error2)
+                }
+            }
+        }
+        
+        let cdata = [CDataModel]()
+        func pre2(indexPath: Int) {
+            data.removeFromCoreData(model: cdata[indexPath]) { result in
+                switch result {
+                case .success():
+                    break
+                case .failure(let error):
+                    XCTAssertTrue(error is Error2)
+                }
+            }
+        }
     }
+    struct SomeError: Error{}
+    struct Error2: Error{}
 
-//    func testPerformanceExample() throws {
-//        // This is an example of a performance test case.
-//        measure {
-//            // Put the code you want to measure the time of here.
-//        }
-//    }
-
+    func testPerform() throws {
+        self.measure {
+            let selfArr = Array(0...1000000)
+            var value = 0
+            
+            selfArr.forEach {_ in
+                value += 0
+            }
+        }
+    }
 }
